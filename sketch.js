@@ -6,8 +6,8 @@ var gate1;
 var gate2;
 var gateHeight;
 var gateWidth;
-var fieldWidth = 1200;
-var fieldHeight = 700;
+var fieldWidth;
+var fieldHeight;
 
 var playerScore1 = 0;
 var playerScore2 = 0;
@@ -15,6 +15,9 @@ var playerScore2 = 0;
 var mouseSpeed = 0;
 
 function setup() {
+  fieldWidth = windowWidth - 30;
+  fieldHeight = windowHeight - 30;
+
   createCanvas(fieldWidth, fieldHeight);
   noCursor();
 
@@ -27,8 +30,8 @@ function setup() {
     gateWidth,
     gateHeight
   );
-  puck = new Puck(fieldWidth / 2, fieldHeight / 2, 50);
-  player = new Player(150, fieldHeight / 2, 80);
+  puck = new Puck(fieldWidth / 2, fieldHeight / 2, 40);
+  player = new Player(150, fieldHeight / 2, 65);
 }
 
 function draw() {
@@ -49,5 +52,7 @@ function draw() {
 }
 
 windowResized = function () {
+  fieldWidth = windowWidth - 30;
+  fieldHeight = windowHeight - 30;
   resizeCanvas(fieldWidth, fieldHeight);
 };
